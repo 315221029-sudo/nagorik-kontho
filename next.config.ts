@@ -1,18 +1,20 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const baseConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
-  
-  // প্রোডাকশন বিল্ডের সময় টাইপস্ক্রিপ্টের এরর থাকলেও বিল্ড সফল করতে এই রুল
+};
+
+// অবজেক্টটিকে এক্সপোর্ট করার আগে একটি ভ্যারিয়েবলে অ্যাসাইন করা (ESLint Rule Fix)
+const finalConfig = {
+  ...baseConfig,
   typescript: {
     ignoreBuildErrors: true,
   },
-  // বিল্ড করার সময় ESLint এর কড়া ওয়ার্নিংগুলোকে ইগনোর করার রুল
   eslint: {
     ignoreDuringBuilds: true,
   },
 };
 
-export default nextConfig;
+export default finalConfig;

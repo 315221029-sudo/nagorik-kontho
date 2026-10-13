@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
@@ -71,7 +70,7 @@ export default function RegisterPage() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Full Name (English)</label>
-            <input type="text" required className="mt-1 block w-full p-2 border rounded-md" value={nameEn} onChange={e => text => setNameEn(e.target.value)} />
+            <input type="text" required className="mt-1 block w-full p-2 border rounded-md" value={nameEn} onChange={e => setNameEn(e.target.value)} />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">ইমেইল ঠিকানা (Email Address)</label>
